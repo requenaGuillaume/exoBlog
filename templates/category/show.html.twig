@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Accueil{% endblock %}
+
+{% block body %}
+
+    <h1 class="text-center">Categorie : {{ category | capitalize }}</h1>
+
+    {% if is_granted('ROLE_ADMIN') %}
+        <a href="{{ path('category_edit', {'title': category}) }}" class="btn btn-primary">Modifier la catégorie</a>
+    {% endif %}
+
+    <div class="d-flex flex-wrap justify-content-around">
+        {% for article in articles %}
+            <div class="card col-5 mt-4">
+                <div class="card-body">
+                    <h5 class="card-title">{{ article.title | capitalize  }}</h5>
+                    <img src="{{ article.image }}" alt="Image de {{ article.title | capitalize  }}" class="d-block">                    
+                    <span class="badge badge-secondary">{{ category | capitalize }}</span>
+                    <p class="card-text">{{ article.description }}</p>
+                    <a href="{{ path('article_show', {'id': article.id}) }}" class="btn btn-primary">Lien vers l'article</a>
+                </div>
+            </div>        
+        {% endfor %}
+    </div>
+
+{% endblock %}

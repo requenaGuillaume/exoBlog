@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Symblog{% endblock %}</title>
+        <link rel="shortcut icon" href="img/sym.png" type="image/png">
+        
+        {% block stylesheets %}
+            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        {% endblock %}
+
+        {% block javascripts %}{% endblock %}
+    </head>
+    <body>
+
+        <header class="mb-4">
+            {{ include('shared/navbar.html.twig') }}
+        </header>
+
+        <main class="container">
+            {% block body %}{% endblock %}
+        </main>
+
+        <footer class="mt-4"></footer>
+    </body>
+</html>

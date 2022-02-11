@@ -1,0 +1,27 @@
+{% extends "base.html.twig" %}
+
+{% form_theme formArticle "bootstrap_5_layout.html.twig" %}
+
+{% block title %}
+    {{ title }}
+{% endblock %}
+
+{% block body %}
+
+    <h1 class="text-center">{{ title }}</h1>
+
+    {{ form_start(formArticle) }}
+
+    {{ form_row(formArticle.title) }}
+
+    {{ form_row(formArticle.category) }}
+
+    {{ form_row(formArticle.description) }}
+
+    {{ form_row(formArticle.image) }}
+
+    <button type="submit" class="btn btn-success">{{ title }}</button>
+
+    {{ form_end(formArticle) }}
+
+{% endblock %}

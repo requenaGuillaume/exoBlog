@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% form_theme formSubscribe "bootstrap_5_layout.html.twig" %}
+
+{% block title %}Inscription{% endblock %}
+
+{% block body %}
+
+    <h1 class="text-center">Inscription</h1>
+
+    {{ form_start(formSubscribe) }}
+    
+        {{ form_row(formSubscribe.pseudo) }}
+
+        {{ form_row(formSubscribe.email) }}
+
+        {{ form_row(formSubscribe.password) }}
+
+        {{ form_row(formSubscribe.confirmPassword) }}
+
+        <button type="submit" class="btn btn-success">Inscription</button>
+
+    {{ form_end(formSubscribe) }}
+
+{% endblock %}

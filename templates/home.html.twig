@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Accueil{% endblock %}
+
+{% block body %}
+
+    <h1 class="text-center">Accueil Symblog</h1>
+
+    <div class="d-flex flex-wrap justify-content-around">
+        {% for article in articles %}
+            <div class="card col-5 mt-4">
+                <div class="card-body">
+                    <h5 class="card-title">{{ article.title | capitalize  }}</h5>
+                    <img src="{{ article.image }}" alt="Image de {{ article.title | capitalize  }}" class="d-block">
+                    <a class="badge badge-secondary" href="{{ path('category_show', {'title': article.getCategory.title}) }}">{{ article.getCategory.title | capitalize }}</a>
+                    <p class="card-text">{{ article.description }}</p>
+                    <a href="{{ path('article_show', {'id': article.id}) }}" class="btn btn-primary">Lien vers l'article</a>
+                </div>
+            </div>        
+        {% endfor %}
+    </div>
+
+{% endblock %}
